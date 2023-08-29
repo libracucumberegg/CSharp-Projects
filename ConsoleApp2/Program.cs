@@ -12,7 +12,7 @@ namespace ConsoleApp2 {
             Console.WriteLine("Input hourly rate");
             while (true) {
                 if (double.TryParse(Console.ReadLine(), out double input)) {
-                    person1.setHourlyRate(input);
+                    person1.SetHourlyRate(input);
                     break;
                 } else {
                     Console.WriteLine("Please input a valid number");
@@ -22,7 +22,7 @@ namespace ConsoleApp2 {
             Console.WriteLine("Input hours worked/week");
             while (true) {
                 if (int.TryParse(Console.ReadLine(), out int input1)) {
-                    person1.setHoursWorked(input1);
+                    person1.SetHoursWorked(input1);
                     break;
                 } else {
                     Console.WriteLine("Please input a valid number");
@@ -33,7 +33,7 @@ namespace ConsoleApp2 {
             Console.WriteLine("Input hourly rate");
             while (true) {
                 if (double.TryParse(Console.ReadLine(), out double input2)) {
-                    person2.setHourlyRate(input2);
+                    person2.SetHourlyRate(input2);
                     break;
                 } else {
                     Console.WriteLine("Please input a valid number");
@@ -43,15 +43,15 @@ namespace ConsoleApp2 {
             Console.WriteLine("Input hours worked/week");
             while (true) {
                 if (int.TryParse(Console.ReadLine(), out int input3)) {
-                    person2.setHoursWorked(input3);
+                    person2.SetHoursWorked(input3);
                     break;
                 } else {
                     Console.WriteLine("Please input a valid number");
                 }
             }
 
-            double person1Salary = (person1.getHourlyRate() * person1.getHoursWorked()) * 52;
-            double person2Salary = (person2.getHourlyRate() * person2.getHoursWorked()) * 52;
+            double person1Salary = (person1.GetHourlyRate() * person1.GetHoursWorked()) * 52;
+            double person2Salary = (person2.GetHourlyRate() * person2.GetHoursWorked()) * 52;
             Console.WriteLine("Annual salary of Person 1: $" + person1Salary);
             Console.WriteLine("Annual salary of Person 2: $" + person2Salary);
 
@@ -69,19 +69,19 @@ namespace ConsoleApp2 {
             this.hoursWorked = hoursWorked;
         }
 
-        public double getHourlyRate() {
+        public double GetHourlyRate() {
             return hourlyRate;
         }
 
-        public void setHourlyRate(double hourlyRate) {
+        public void SetHourlyRate(double hourlyRate) {
             this.hourlyRate = hourlyRate;
         }
 
-        public double getHoursWorked() {
+        public double GetHoursWorked() {
             return hourlyRate;
         }
 
-        public void setHoursWorked(int hoursWorked) {
+        public void SetHoursWorked(int hoursWorked) {
             this.hoursWorked = hoursWorked;
         }
     }
