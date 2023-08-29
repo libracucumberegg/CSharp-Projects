@@ -8,12 +8,12 @@ namespace ConsoleApp5 {
             string string2 = "a concated";
             string string3 = "string";
 
-            string concated = string1 + " " + string2 + " " + string3;
+            string concated = string1 + " " + string2 + " " + string3; // concates the string
 
             Console.WriteLine(concated);
-            Console.WriteLine((concated + " but uppercase").ToUpper());
+            Console.WriteLine((concated + " but uppercase").ToUpper()); // changes string to uppercase
 
-            StringBuilder sb = new StringBuilder();
+            StringBuilder sb = new StringBuilder(); // String Builder to add lorem ipsum
             sb.Append("Lorem ipsum dolor sit amet, consectetur adipiscing elit.");
             sb.Append(" Sed nec lectus vitae justo consectetur tristique.");
             sb.Append(" Fusce dapibus, mauris a luctus eleifend, nisl diam fringilla diam, in porta ligula nisi in ante.");
@@ -26,9 +26,9 @@ namespace ConsoleApp5 {
             sb.Append(" Quisque sodales dui non nunc dignissim, nec rhoncus nulla tristique.");
             sb.Append(" Aenean et nunc ex.");
 
-            Console.WriteLine(sb);
+            Console.WriteLine(sb); // prints the string builder
 
-            Console.ReadLine();
+            Console.ReadLine(); // allows user to read output
         }
     }
 }
