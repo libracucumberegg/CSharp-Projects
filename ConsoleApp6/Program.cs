@@ -10,7 +10,7 @@ namespace ConsoleApp6 {
             while (true) {
                 if (int.TryParse(Console.ReadLine(), out int i)) {
                     try {
-                        Console.WriteLine(stringArray[i]);
+                        Console.WriteLine("Index " + i + " is: " + stringArray[i]);
                         break;
                     } catch (Exception) {
                         Console.WriteLine("That index in the array does not exist");
@@ -24,7 +24,7 @@ namespace ConsoleApp6 {
             while (true) {
                 if (int.TryParse(Console.ReadLine(), out int i)) { // ensures index is actually an integer
                     try {
-                        Console.WriteLine(intArray[i]);
+                        Console.WriteLine("Index " + i + " is: " + intArray[i]);
                         break;
                     } catch (Exception) { // if exception is caught then the index doesn't exist
                         Console.WriteLine("That index in the array does not exist");
