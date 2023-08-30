@@ -10,6 +10,7 @@ namespace ConsoleApp13 {
             Employee employee = new Employee() { firstName = "James", lastName = "Adams" }; // makes new employee
 
             employee.SayName();
+            employee.Quit();
             Console.ReadLine(); // lets user read output
         }
     }
