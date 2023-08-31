@@ -1,4 +1,4 @@
-﻿namespace ConsoleApp13 {
+﻿namespace Polymorphism_Assignment {
     public interface IQuittable {
         void Quit();
     }

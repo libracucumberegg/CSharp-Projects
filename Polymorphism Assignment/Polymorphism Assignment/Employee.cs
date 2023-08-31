@@ -1,6 +1,6 @@
 ﻿using System;
 
-namespace ConsoleApp13 {
+namespace Polymorphism_Assignment {
     public class Employee : Person, IQuittable { // inherit person class
         public int id { get; set; }
 
