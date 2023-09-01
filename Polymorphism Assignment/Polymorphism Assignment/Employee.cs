@@ -1,7 +1,7 @@
 ﻿using System;
 
 namespace Polymorphism_Assignment {
-    public class Employee : Person, IQuittable { // inherit person class
+    public class Employee : Person, IQuittable { // inherit person class and IQuittable interface
         public int id { get; set; }
 
         public override void SayName() { // override Person SayName
