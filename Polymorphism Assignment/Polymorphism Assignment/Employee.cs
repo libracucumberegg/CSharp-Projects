@@ -5,11 +5,10 @@ namespace Polymorphism_Assignment {
         public int id { get; set; }
 
         public override void SayName() { // override Person SayName
-            Console.WriteLine("Name: " + firstName + lastName);
+            Console.WriteLine("Name: " + firstName + " " + lastName);
         }
 
         public void Quit() {
-            Console.WriteLine("I quit!"); // overrides IQuittable Quit
         }
     }
 }

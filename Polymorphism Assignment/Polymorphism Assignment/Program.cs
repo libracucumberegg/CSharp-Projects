@@ -6,7 +6,9 @@ namespace Polymorphism_Assignment {
             Employee employee = new Employee() { firstName = "James", lastName = "Adams" }; // makes new employee
 
             employee.SayName();
-            employee.Quit();
+
+            IQuittable quittable = employee; // makes IQuittable object using employee since it inherits IQuittable
+            quittable.Quit();
             Console.ReadLine(); // lets user read output
         }
     }
