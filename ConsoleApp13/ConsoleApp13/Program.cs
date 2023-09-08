@@ -33,6 +33,7 @@ namespace ConsoleApp13 {
                 Employee em = employees[i];
 
                 if (em.FirstName.Equals("Joe")) {
+                    Console.WriteLine(em.FirstName + " " + em.LastName);
                     joe.Add(em);
                 }
             }
@@ -40,15 +41,19 @@ namespace ConsoleApp13 {
 
             employees.ForEach(e => { // checks for employees with the first name Joe using a foreach inside a lambda
                 if (e.FirstName.Equals("Joe")) {
+                    Console.WriteLine(e.FirstName + " " + e.LastName);
                     joe.Add(e);
                 }
             });
 
             employees.ForEach(e1 => { // checks for employees with the an id more than 5 using a foreach inside a lambda
                 if (e1.id > 5) {
+                    Console.WriteLine(e1.FirstName + " has an ID of 6 or more");
                     lowIDs.Add(e1);
                 }
             });
+
+            Console.ReadLine();
         }
     }
 }
