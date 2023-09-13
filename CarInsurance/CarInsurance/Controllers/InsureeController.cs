@@ -48,7 +48,7 @@ namespace CarInsurance.Controllers
         {
             if (ModelState.IsValid)
             {
-                insuree.Quote = (decimal)CalculateQuote(insuree.DateOfBirth, insuree.CarYear, insuree.CarMake, insuree.SpeedingTickets, insuree.DUI, insuree.CoverageType);
+                insuree.Quote = CalculateQuote(insuree);
                 db.Insurees.Add(insuree);
                 db.SaveChanges();
                 return RedirectToAction("Index");
@@ -128,8 +128,43 @@ namespace CarInsurance.Controllers
             return View(db.Insurees.ToList());
         }
 
-        public double CalculateQuote(DateTime dob, int carYear, String carMake, int tickets, bool dui, bool full) {
-            double baseQuote = 50;
+        public decimal CalculateQuote(Insuree insuree) { 
+            decimal baseQuote = 50;
+
+            int age = (int)DateAndTime.DateDiff(DateInterval.Year, insuree.DateOfBirth, DateTime.Now);
+
+            if (age <= 18) {
+                baseQuote += 100;
+            } else if (age <= 25) {
+                baseQuote += 50;
+            } else {
+                baseQuote += 25;
+            }
+
+            int carYear = insuree.CarYear;
+
+            if (carYear < 2000 || carYear > 2015) {
+                baseQuote += 25;
+            }
+
+            if (insuree.CarMake.Equals("Porsche")) {
+                baseQuote += 25;
+                if (insuree.CarModel.Equals("911 Carrera")) {
+                    baseQuote += 25;
+                }
+            }
+
+            baseQuote += insuree.SpeedingTickets * 10;
+
+            if (insuree.DUI) baseQuote += (baseQuote / 4);
+
+            if (insuree.CoverageType) baseQuote += (baseQuote / 2);
+
+            return baseQuote;
+        }
+
+        public decimal CalculateQuote(DateTime dob, int carYear, String carMake, String carModel, int tickets, bool dui, bool full) {
+            decimal baseQuote = 50;
 
             int age = (int)DateAndTime.DateDiff(DateInterval.Year, dob, DateTime.Now);
 
@@ -141,13 +176,13 @@ namespace CarInsurance.Controllers
                 baseQuote += 25;
             }
 
-            if (carYear <= 2000 || carYear >= 2015) {
+            if (carYear < 2000 || carYear > 2015) {
                 baseQuote += 25;
             }
 
             if (carMake.Equals("Porsche")) {
                 baseQuote += 25;
-                if (carMake.Equals("911 Carrera")) {
+                if (carModel.Equals("911 Carrera")) {
                     baseQuote += 25;
                 }
             }
